@@ -6,7 +6,14 @@ class Teams extends React.Component {
   
       this.state = {
         teams: [],
+        valSelected: "Select"
       };
+    }
+
+    handleChange(event){
+      this.setState({
+          valSelected: event.target.value
+      });
     }
   
     componentDidMount() {
@@ -20,13 +27,13 @@ class Teams extends React.Component {
         console.log(teams);
         console.log(this.state);
         return (
-          <ul>
+          <select value={this.state.valSelected} onChange={this.handleChange.bind(this)}>
             {teams.map(team =>
-              <li key={team.id}>
-                <p>{team.name}</p>
-              </li>
+              <option key={team.id} value={team.id}>
+                {team.name}
+              </option>
             )}
-          </ul>
+          </select>
         );
       }
   }
