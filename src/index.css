@@ -34,3 +34,12 @@ select {
   height: 40px;
   min-width: 412px;
 }
+
+ul{
+  list-style: none;
+}
+
+ul li {
+  float: left;
+  padding: 10px;
+}
